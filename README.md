@@ -8,8 +8,8 @@
 1. Run the exe found after unzipping the most recent release from this repo. 
 2. It will ask you to first input a stronghold in each ring. Once that is done it will calculate an approximate location of all the other strongholds in each ring. From here the program will create a `stronghold.qs` file. 
 3. You will open this file with the Concorde TSP solver you downloaded earlier and then hit the solve tab at the top and use the default solving parameters. 
-4. Once it is done solving, hit save on Concorde
-5. Hit enter within the exe. 
+4. Once it is done solving, hit save on Concorde.
+5. Hit enter within the exe to tell it you are done solving in Concorde and have saved. 
 6. The exe will now start displaying coordinates to build nether portals to find strongholds, and will follow the optimal path made by Concorde. Every time you complete a stronghold you can hit enter to progress to the next one. 
 
 ## Alternative Commands
