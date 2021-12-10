@@ -17,7 +17,13 @@ plt.savefig("output.png", bbox_inches="tight", transparent=True)
 
 prev = (0, 0)
 for i in range(1, 9):
-    sh = getIntInput("Stronghold in ring " + str(i) + ":")
+    sh = []
+    while len(sh) != 2:
+        sh = getIntInput("Stronghold in ring " + str(i) + ":")
+        if len(sh) != 2:
+            print(
+                "Something went wrong. Make sure you only input your x and z coordinate separated by a space"
+            )
     first_strongholds.append((sh[0], sh[1]))
 
     count += 1
@@ -46,7 +52,7 @@ for i in range(len(first_strongholds)):
     vec1 = np.array([x, z])
     vec2 = np.array([1, 0])
     ang = np.arctan2(vec1[1], vec1[0]) - np.arctan2(vec2[1], vec2[0])
-    print("Ring", i + 1, ang)
+    # print("Ring", i + 1, ang)
     for j in range(sh_per_ring[i] - 1):
         ang += (2 * np.pi) / sh_per_ring[i]
         new_x = magnitude * np.cos(ang)

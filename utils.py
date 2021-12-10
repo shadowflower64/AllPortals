@@ -15,33 +15,41 @@ def generatePath(shs, pos):
     for sh in shs:
         print(str(sh[0]), str(sh[1]), file=f)
     f.close()
-    input(
-        "Use the strongholds.qs file in this directory to run concorde pathfinding, then once you solve and save, press enter"
-    )
+    while True:
+        try:
+            input(
+                "Use the strongholds.qs file in this directory to run concorde pathfinding, then once you solve and save, press enter"
+            )
 
-    f = open("strongholds.qs", "r")
-    lines = f.readlines()
-    f.close()
+            f = open("strongholds.qs", "r")
+            lines = f.readlines()
+            f.close()
 
-    paths = {}
-    for i in range(len(shs) + 1, len(lines)):
-        start, end, dist = lines[i].split()
-        paths[int(start)] = int(end)
-    rev_paths = dict((v, k) for k, v in paths.items())
+            paths = {}
+            for i in range(len(shs) + 1, len(lines)):
+                start, end, dist = lines[i].split()
+                paths[int(start)] = int(end)
 
-    new_x, new_z = zip(*shs)
+            rev_paths = dict((v, k) for k, v in paths.items())
 
-    # Have to scale numbers down due to overflow errors
-    new_x = np.array(list(new_x)) / 100
-    new_z = np.array(list(new_z)) / 100
-    pos = (pos[0] / 100, pos[1] / 100)
+            new_x, new_z = zip(*shs)
 
-    dists = np.sqrt(((new_x - pos[0]) ** 2) + ((new_z - pos[1]) ** 2))
-    nearest_idx = np.argmin(dists)
-    normal = get_dist(shs[nearest_idx], shs[paths[nearest_idx]])
-    reverse = get_dist(shs[nearest_idx], shs[rev_paths[nearest_idx]])
-    if normal > reverse:
-        paths = rev_paths
+            # Have to scale numbers down due to overflow errors
+            new_x = np.array(list(new_x)) / 100
+            new_z = np.array(list(new_z)) / 100
+            pos = (pos[0] / 100, pos[1] / 100)
+
+            dists = np.sqrt(((new_x - pos[0]) ** 2) + ((new_z - pos[1]) ** 2))
+            nearest_idx = np.argmin(dists)
+            normal = get_dist(shs[nearest_idx], shs[paths[nearest_idx]])
+            reverse = get_dist(shs[nearest_idx], shs[rev_paths[nearest_idx]])
+            if normal > reverse:
+                paths = rev_paths
+            break
+        except Exception as e:
+            print("Something went wrong, make sure you hit save, and try again")
+            continue
+
     return paths, nearest_idx
 
 
