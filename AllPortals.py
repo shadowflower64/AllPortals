@@ -22,13 +22,15 @@ for i in range(1, 9):
         input = input("Stronghold in ring " + str(i) + ":")
         sh = input.split()
         if "/" in input:
-            first_strongholds.append((int(sh[6]), int(sh[8]))
+            first_strongholds.append((int(sh[6]), int(sh[8])))
             break
         elif len(sh) == 2:
             first_strongholds.append((int(sh[0]), int(sh[1])))
             break
         else:
-            print("You probably put in the coordinates wrong or didn't paste your f3+c properly, try again.")
+            print(
+                "You probably put in the coordinates wrong or didn't paste your f3+c properly, try again."
+            )
 
     count += 1
     updateCount(count)
