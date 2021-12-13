@@ -25,7 +25,7 @@ for i in range(1, 9):
             first_strongholds.append((int(sh[6]), int(sh[8]))
             break
         elif len(sh) == 2:
-            first_strongholds.append((sh[0], sh[1]))
+            first_strongholds.append((int(sh[0]), int(sh[1])))
             break
         else:
             print("You probably put in the coordinates wrong or didn't paste your f3+c properly, try again.")
