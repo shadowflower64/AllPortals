@@ -97,7 +97,11 @@ def printHelp():
 def getIntInput(prompt):
     while True:
         try:
-            integers = input(prompt).split()
+            user_input = input(prompt)
+            integers = user_input.split()
+            if "/" == user_input[0]:
+                integers = [integers[6], integers[8]]
+                integers = list(map(float, integers))
             results = list(map(int, integers))
             return results
         except Exception as e:

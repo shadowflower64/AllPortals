@@ -17,19 +17,12 @@ plt.savefig("output.png", bbox_inches="tight", transparent=True)
 
 prev = (0, 0)
 for i in range(1, 9):
-    sh = []
-    while True:
-        input = input("Stronghold in ring " + str(i) + ":")
-        sh = input.split()
-        if "/" in input:
-            first_strongholds.append((int(sh[6]), int(sh[8])))
-            break
-        elif len(sh) == 2:
-            first_strongholds.append((int(sh[0]), int(sh[1])))
-            break
-        else:
+    sh = getIntInput("Stronghold in ring " + str(i) + ":")
+    while len(sh) != 2:
+        sh = getIntInput("Stronghold in ring " + str(i) + ":")
+        if len(sh) != 2:
             print(
-                "You probably put in the coordinates wrong or didn't paste your f3+c properly, try again."
+                "Something went wrong. Make sure you only input your x and z coordinate separated by a space, or copy paste the f3+c command"
             )
 
     count += 1
