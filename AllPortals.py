@@ -24,7 +24,7 @@ for i in range(1, 9):
             print(
                 "Something went wrong. Make sure you only input your x and z coordinate separated by a space, or copy paste the f3+c command"
             )
-
+    first_strongholds.append((sh[0], sh[1]))
     count += 1
     updateCount(count)
     plt.scatter(sh[0], sh[1], c="green", s=40)
