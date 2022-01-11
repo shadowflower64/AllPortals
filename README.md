@@ -16,6 +16,6 @@
 (These commands can only be used after finding the first stronghold in each ring)
 - `h`: displays a list of all the commands
 - `0`: marks that there was no stronghold in the point you visited. This command should be used when you find the empty sector in the 8th ring.
-- `d`: tells the program you forgot to set your spawn and will restart the pathfinding from 0 0. You will need to reopen the `.qs` file in Concorde (make sure you hit "New" then "Open", don't immediately hit "Open") and solve it again using the same pathfinding you used earlier.
+- `d`: tells the program you forgot to set your spawn and will restart the pathfinding from 0 0. You will need to reopen the `.qs` file in Concorde (make sure you hit "New" then "Open", don't immediately hit "Open") and solve it again using the same method you used earlier.
 - `d*`: does same thing as `d` except you can use coordinates anywhere in the world.
 - `e`: allows you to edit the number of strongholds you've completed. This will only affect the counter and not the visualization of all the strongholds.
