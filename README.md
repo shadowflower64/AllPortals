@@ -19,3 +19,19 @@
 - `d`: tells the program you forgot to set your spawn and will restart the pathfinding from 0 0. You will need to reopen the `.qs` file in Concorde (make sure you hit "New" then "Open", don't immediately hit "Open") and solve it again using the same method you used earlier.
 - `d*`: does same thing as `d` except you can use coordinates anywhere in the world.
 - `e`: allows you to edit the number of strongholds you've completed. This will only affect the counter and not the visualization of all the strongholds.
+
+## OBS Setup
+The program will generate 3 different files you can display on your stream. You can use text capture and image capture to display them on stream.
+
+![image](https://user-images.githubusercontent.com/80478795/149217848-c62b779f-2208-4ead-9bfe-c19b7322c4c1.png)
+
+### sh_count.txt
+This is a basic text file that says how many strongholds you have completed out of 128.
+
+### fun_facts.txt
+This text file will show random facts about the numbers. Such as number is prime or 69 nice. Very silly.
+
+### output.png
+A picture of all the strongholds you've visited. Blue lines and dots indicate the stronghold you are going to, green is strongholds you have already gone to, and grey are ones you have not gone to yet.
+Note: there is an OBS bug where sometimes the image will disappear when updated. This will naturally fix itself once you finish the next stronghold as the image will update again. You can also go into OBS and refresh the source by reselecting the png file.
+
