@@ -33,5 +33,6 @@ This text file will show random facts about the numbers. Such as number is prime
 
 ### output.png
 A picture of all the strongholds you've visited. Blue lines and dots indicate the stronghold you are going to, green is strongholds you have already gone to, and grey are ones you have not gone to yet.
-Note: there is an OBS bug where sometimes the image will disappear when updated. This will naturally fix itself once you finish the next stronghold as the image will update again. You can also go into OBS and refresh the source by reselecting the png file.
+
+**Note: there is an OBS bug where sometimes the image will disappear when updated. This will naturally fix itself once you finish the next stronghold as the image will update again. You can also go into OBS and refresh the source by reselecting the png file.**
 

@@ -17,13 +17,26 @@ plt.savefig("output.png", bbox_inches="tight", transparent=True)
 
 prev = (0, 0)
 for i in range(1, 9):
-    sh = getIntInput("Stronghold in ring " + str(i) + ":")
+    sh = [0]
     while len(sh) != 2:
         sh = getIntInput("Stronghold in ring " + str(i) + ":")
         if len(sh) != 2:
             print(
                 "Something went wrong. Make sure you only input your x and z coordinate separated by a space, or copy paste the f3+c command"
             )
+        else:
+            ring = getRing(sh)
+            if i != ring:
+                if ring > 0:
+                    user = input("Are you sure this is in the right ring? Looks like this is a stronghold in ring " + str(ring) +
+                    ".\nIf you are completely sure this is in the right ring and my program is stupid then type 'yes', otherwise hit enter to be asked for coords again\n")
+                    if user != 'yes':
+                        sh = [0]
+                else:
+                    user = input("Are you sure this is in the right ring? This stronghold does not appear to be in any ring." +
+                    "\nThis is possible to occur with biome snapping, but quite rare. If you are sure then type 'yes', otherwise hit enter to be asked for coords again\n")
+                    if user != 'yes':
+                        sh = [0]
     first_strongholds.append((sh[0], sh[1]))
     count += 1
     updateCount(count)
