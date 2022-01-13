@@ -108,6 +108,13 @@ def getIntInput(prompt):
             print("Integer(s) only input. Seperate multiple numbers with spaces")
             continue
 
+def getRing(coords):
+    dist = get_dist((0, 0), coords)
+    sh_bounds = [(1280, 2816), (4352, 5888), (7424, 8960), (10496, 12032), (13568, 15104), (16640, 18176), (19712, 21248), (22784, 24320)]
+    for i in range(len(sh_bounds)):
+        if dist > sh_bounds[i][0] and dist < sh_bounds[i][1]:
+            return i + 1
+    return 0
 
 def graphAddSH(prev, sh, col1, flag):
     line = plt.arrow(
