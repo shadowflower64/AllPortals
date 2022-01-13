@@ -111,15 +111,13 @@ while count < 128:
         prompt = "Stronghold " + str(count + 1) + ":\t" + str(sh_n) + "\n"
 
         if sh in eighth_ring:
-            prompt += "8th ring, there could be no stronghold\n"
+            prompt += "8th ring, there could be no stronghold. If there is no stronghold please input '0' instead of hitting Enter\n"
 
         user = input(prompt)
 
         if user == "":
             count += 1
             break
-        elif user == "h":
-            printHelp()
         elif user == "0":
             c2 = True
             point.remove()
@@ -163,6 +161,8 @@ while count < 128:
             graphAddSH(pos, sh, "blue", c2)
 
             plt.savefig("output.png", bbox_inches="tight", transparent=True)
+        else:
+            printHelp()
 
     curr = paths[curr]
     updateCount(count)
