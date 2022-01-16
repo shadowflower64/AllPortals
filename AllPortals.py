@@ -111,7 +111,7 @@ while count < 128:
         prompt = "Stronghold " + str(count + 1) + ":\t" + str(sh_n) + "\n"
 
         if sh in eighth_ring:
-            prompt += "8th ring, there could be no stronghold. If there is no stronghold please input '0' instead of hitting Enter\n"
+            prompt += "8th ring, there could be no stronghold. \nIf there is no stronghold please input '0' instead of hitting Enter\n"
 
         user = input(prompt)
 
@@ -130,6 +130,26 @@ while count < 128:
             count = new_count
             updateCount(count)
         elif user == "d" or user == "d*":
+            response = ''
+            while response != 'y' and response != 'n':
+                response = input("Have you filled in the portal to the stronghold listed above? (y/n)\n")
+                response = response.lower()
+
+            if response == 'y':
+                completed.append(prev)
+                sh = unfinished[curr]
+                sh_n = (round(sh[0] / 8), round(sh[1] / 8))
+                line, point = graphAddSH(prev, sh, "blue", c2)
+                if not noGraph:
+                    graphAddSH(
+                        completed[-2], prev, "green", c2
+                    )  # Do not mark sh as finished if there was a reset
+                plt.savefig("output.png", bbox_inches="tight", transparent=True)
+                noGraph = False
+                c2 = False
+                prev = sh
+                count += 1
+
             pos = (0, 0)
             if user == "d*":
                 pos = tuple(

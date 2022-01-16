@@ -132,3 +132,4 @@ def graphAddSH(prev, sh, col1, flag):
     if not flag:
         point = plt.scatter(sh[0], sh[1], c=col1, s=30)
     return line, point
+
