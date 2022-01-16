@@ -3,7 +3,7 @@ import numpy as np
 from utils import *
 import matplotlib.pyplot as plt
 
-
+print("Setting up...")
 first_strongholds = []
 sh_per_ring = [3, 6, 10, 15, 21, 28, 36, 10]
 magnitude_per_ring = [2048, 5120, 8192, 11264, 14336, 17408, 20480, 23552]
