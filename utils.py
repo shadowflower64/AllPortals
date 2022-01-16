@@ -37,9 +37,9 @@ def generatePath(shs, pos):
             # Have to scale numbers down due to overflow errors
             new_x = np.array(list(new_x)) / 100
             new_z = np.array(list(new_z)) / 100
-            pos = (pos[0] / 100, pos[1] / 100)
+            new_pos = (pos[0] / 100, pos[1] / 100)
 
-            dists = np.sqrt(((new_x - pos[0]) ** 2) + ((new_z - pos[1]) ** 2))
+            dists = np.sqrt(((new_x - new_pos[0]) ** 2) + ((new_z - new_pos[1]) ** 2))
             nearest_idx = np.argmin(dists)
             normal = get_dist(shs[nearest_idx], shs[paths[nearest_idx]])
             reverse = get_dist(shs[nearest_idx], shs[rev_paths[nearest_idx]])
