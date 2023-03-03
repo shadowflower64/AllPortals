@@ -109,7 +109,9 @@ try:
         prev = sh
 
         while True:
-            prompt = "Stronghold " + str(count + 1) + ":\t" + str(sh_n) + "\n"
+
+            ang = find_angle(prev, sh) #find the angle to travel at on the roof
+            prompt = "Stronghold " + str(count + 1) + ":\t" + str(sh_n) + "at angle" + str(ang) + "\n"
 
             if sh in eighth_ring:
                 prompt += "8th ring, there could be no stronghold. \nIf there is no stronghold please input '0' instead of hitting Enter\n"

@@ -133,3 +133,23 @@ def graphAddSH(prev, sh, col1, flag):
         point = plt.scatter(sh[0], sh[1], c=col1, s=30)
     return line, point
 
+
+#find angles using current position and next stronghold to go to
+def find_angle(pos, nexsh):
+    x1 = int(pos[0])
+    x2 = int(nexsh[0])
+    z1 = int(pos[1])
+    z2 = int(nexsh[1])
+    opposite = x1-x2
+    adjacent = z1-z2
+    ref_angle = abs(math.degrees(math.atan(opposite/adjacent)))
+    if opposite>=0 and adjacent>=0:
+        actual_angle = 180 - ref_angle
+    elif opposite<0 and adjacent<0:
+        actual_angle = 0 - ref_angle
+    elif opposite<0 and adjacent>=0:
+        actual_angle = ref_angle - 180
+    else:
+        actual_angle = ref_angle
+    actual_angle = round(actual_angle, 2)
+    return actual_angle
