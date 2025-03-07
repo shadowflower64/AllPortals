@@ -135,21 +135,12 @@ def graphAddSH(prev, sh, col1, flag):
 
 
 #find angles using current position and next stronghold to go to
-def find_angle(pos, nexsh):
+def find_angle(pos, next_stronghold_pos):
     x1 = int(pos[0])
-    x2 = int(nexsh[0])
+    x2 = int(next_stronghold_pos[0])
     z1 = int(pos[1])
-    z2 = int(nexsh[1])
-    opposite = x1-x2
-    adjacent = z1-z2
-    ref_angle = abs(math.degrees(math.atan(opposite/adjacent)))
-    if opposite>=0 and adjacent>=0:
-        actual_angle = 180 - ref_angle
-    elif opposite<0 and adjacent<0:
-        actual_angle = 0 - ref_angle
-    elif opposite<0 and adjacent>=0:
-        actual_angle = ref_angle - 180
-    else:
-        actual_angle = ref_angle
-    actual_angle = round(actual_angle, 2)
-    return actual_angle
+    z2 = int(next_stronghold_pos[1])
+    distance_x = x1 - x2
+    distance_z = z1 - z2
+    angle = math.atan2(distance_x, distance_z)
+    return round(angle, 2)
