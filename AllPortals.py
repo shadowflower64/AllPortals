@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 try:
     print("Setting up...")
     import os
