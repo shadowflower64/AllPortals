@@ -142,5 +142,5 @@ def find_angle(pos, next_stronghold_pos):
     z2 = int(next_stronghold_pos[1])
     distance_x = x1 - x2
     distance_z = z1 - z2
-    angle = math.atan2(distance_x, distance_z)
+    angle = math.degrees(math.atan2(distance_x, -distance_z))
     return round(angle, 2)
